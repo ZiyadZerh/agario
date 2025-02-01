@@ -1,0 +1,13 @@
+/* Global Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+/* Canvas Styles */
+canvas {
+  display: block;
+  background: #fafafa;
+} 
