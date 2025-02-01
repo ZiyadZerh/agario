@@ -635,7 +635,8 @@ function splitPlayerCells() {
   const MAX_CELLS = 16;
   for (let cell of cellsToSplit) {
     if (playerCells.length >= MAX_CELLS) break;
-    if (cell.mass < 40) continue; // Minimum mass to split.
+    // Prevent splitting if the mass is too low to avoid creating very tiny cells.
+    if (cell.mass < 80) continue;
     const newMass = cell.mass / 2;
     cell.mass = newMass;
     cell.radius = Math.sqrt(newMass);
@@ -743,6 +744,12 @@ function updateExtras() {
     }
   }
 }
+
+canvas.addEventListener("touchend", function (e) {
+  if (gameOver) {
+    startGame();
+  }
+});
 
 startGame();
 gameLoop(); 
